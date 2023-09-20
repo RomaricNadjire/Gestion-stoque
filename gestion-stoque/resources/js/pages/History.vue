@@ -12,29 +12,28 @@ export default {
 }
 </script>
 <script setup>
-    import { useForm } from '@inertiajs/vue3';
     const form = useForm({
-        categorie: null,
+        product: null,
     })
 
     defineProps({
         errors: Object,
         products: Object,
-        categories: Object
+        movements: Object
     })
 
     function submit(){
-        router.post('/', form)
+        router.post('history', form)
     }
 </script>
 
 <template>
     <div class="card m-5">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <div>Liste des produit</div>
+            <div>Historique des entrée/sortie</div>
             <form @submit.prevent="submit" class="d-flex justify-content-between align-items-center">
-                <select class="form-control\" id="fournisseur" v-model="form.categorie">
-                    <option v-for="categorie in categories">{{ categorie['categorie'] }}</option>
+                <select class="form-control\" v-model="form.product">
+                    <option v-for="product in products">{{ product['name'] }}</option>
                 </select>
                 <button type="submit" class="btn btn-primary py-0 mx-2">Envoyer</button>
             </form>
@@ -44,27 +43,22 @@ export default {
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Prix(CFA)</th>
-                            <th scope="col">Quantité</th>
+                            <th scope="col">Article</th>
+                            <th scope="col">Quantite</th>
+                            <th scope="col">Movement</th>
+                            <th scope="col">Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="product in products">
-                            <td>{{ product.name }}</td>
-                            <td class="w-50">{{ product.description }}</td>
-                            <td> {{ product.price }}</td>
-                            <td>{{ product.quantity }}</td>
+                        <tr v-for="movement in movements">
+                            <td>{{ movement.product }}</td>
+                            <td class="w-50">{{ movement.quantity }}</td>
+                            <td> {{ movement.movement_type }}</td>
+                            <td>{{ movement.created_at }}</td>
                         </tr>                        
                     </tbody>
                 </table>
             </blockquote>
-            <div class="mt-2 d-flex justify-content-around align-items-center">
-                <a href="add" class="btn btn-outline-primary">Entrée</a>
-                <a href="out" class="btn btn-outline-success">Sortie</a>
-                <a href="history" class="btn btn-outline-info">Histotique</a>
-            </div>
         </div>
     </div>
 </template>

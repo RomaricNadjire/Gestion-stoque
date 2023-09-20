@@ -15,8 +15,9 @@ export default {
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 const form = useForm({
+    categorie: null,
     quantite: null,
-    quantite: null,
+    article: null,
     prix: null,
     description: null,
 })
@@ -28,7 +29,7 @@ defineProps({
 })
 
 function submit() {
-    router.post('loger', form)
+    router.post('add', form)
 }
 </script>
 
@@ -60,13 +61,13 @@ function submit() {
                 <div class="mb-2">
                     <label for="prix">Prix</label>
                     <input type="number" class="form-control mt-2" id="prix" v-model="form.prix" aria-describedby="prixHelp"
-                        placeholder="Entrer votre prix">
+                        placeholder="Entrer votre prix" min="0">
                     <small v-if="errors.prix" class="text-danger text-xs">{{ errors.prix }}</small>
                 </div>
                 <div class="mb-2">
                     <label for="quantite">Quantite</label>
                     <input type="number" class="form-control mt-2" id="quantite" v-model="form.quantite"
-                        aria-describedby="quantiteHelp" placeholder="Entrer votre quantite">
+                        aria-describedby="quantiteHelp" placeholder="Entrer votre quantite" min="0">
                     <small v-if="errors.quantite" class="text-danger text-xs">{{ errors.quantite }}</small>
                 </div>
                 <div class="mb-2">

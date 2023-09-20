@@ -11,6 +11,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded =[''];
+
     public function mouvements(): HasMany
     {
         return $this->hasMany(Mouvement::class);

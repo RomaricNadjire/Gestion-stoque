@@ -15,10 +15,15 @@ use App\Http\Controllers\StockController;
 |
 */
 Route::middleware(['auth'])->group(function (){    
-    Route::get('/', [StockController::class, 'stock']);
+    Route::get('/', [StockController::class, 'stock'])->name('stock');
+    Route::post('/', [StockController::class, 'sorted']);
     Route::get('add', [StockController::class, 'registration']);
+    Route::post('add', [StockController::class, 'store']);
     Route::get('out', [StockController::class, 'out']);
+    Route::post('out', [StockController::class, 'update']);
     Route::get('commandes', [StockController::class, 'commandes']);
+    Route::get('history', [StockController::class, 'history']);
+    Route::post('history', [StockController::class, 'sort']);
 });
 
 Route::middleware(['guest'])->group(function (){
