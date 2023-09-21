@@ -17,20 +17,23 @@ use App\Http\Controllers\StockController;
 Route::middleware(['auth'])->group(function (){    
     Route::get('/', [StockController::class, 'stock'])->name('stock');
     Route::post('/', [StockController::class, 'sorted']);
-    Route::get('add', [StockController::class, 'registration']);
-    Route::post('add', [StockController::class, 'store']);
-    Route::get('out', [StockController::class, 'out']);
-    Route::post('out', [StockController::class, 'update']);
-    Route::get('commandes', [StockController::class, 'commandes']);
-    Route::get('history', [StockController::class, 'history']);
-    Route::post('history', [StockController::class, 'sort']);
+    Route::get('/add', [StockController::class, 'registration']);
+    Route::post('/add', [StockController::class, 'store']);
+    Route::get('/out', [StockController::class, 'out']);
+    Route::post('/out', [StockController::class, 'update']);
+    Route::get('/commandes', [StockController::class, 'commandes'])->name('commandes');
+    Route::post('/commandes', [StockController::class, 'commandeStore']);
+    Route::post('/commandes.sorted', [StockController::class, 'commandesSorted']);
+    Route::get('/commande/{id}/show', [StockController::class, 'commandeShow'])->name('details');
+    Route::get('/history', [StockController::class, 'history']);
+    Route::post('/history', [StockController::class, 'sort']);
 });
 
 Route::middleware(['guest'])->group(function (){
-    Route::get('login', [MonController::class, 'login'])->name('login');
-    Route::get('registration', [MonController::class, 'registration']);
-    Route::post('registration', [MonController::class, 'registrater']);
-    Route::post('loger', [MonController::class, 'loger']);
+    Route::get('/login', [MonController::class, 'login'])->name('login');
+    Route::get('/registration', [MonController::class, 'registration']);
+    Route::post('/registration', [MonController::class, 'registrater']);
+    Route::post('/loger', [MonController::class, 'loger']);
 });
 
 // Route::middleware(['auth'])->group(function (){

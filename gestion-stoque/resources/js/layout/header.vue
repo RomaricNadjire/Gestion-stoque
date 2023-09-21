@@ -1,5 +1,5 @@
 <script>
-import { Link } from '@inertiajs/vue3'
+    import { Link } from '@inertiajs/vue3'
 </script>
 
 <template>
@@ -16,7 +16,7 @@ import { Link } from '@inertiajs/vue3'
                         <a class="nav-link" href="/">Stock</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="commandes">Commandes</a>
+                        <a class="nav-link" href="/commandes">Commandes</a>
                     </li>
                 </ul>
             </div>

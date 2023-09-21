@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('commandedetails', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
+            $table->String('product');
             $table->unsignedBigInteger('commande_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('product')->references('name')->on('products')->onDelete('cascade');
             $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('cascade');
             $table->unsignedInteger('quantity');
-            $table->decimal('unit_price', 10, 2);
+            $table->decimal('unit_price', 10, 2);         
+            $table->timestamps();
         });
     }
 

@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Commandes extends Model
+class Commande extends Model
 {
     use HasFactory;
+
+    protected $guarded = [''];
 
     public function commandedetails(): HasMany
     {

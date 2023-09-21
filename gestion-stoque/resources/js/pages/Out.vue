@@ -46,8 +46,7 @@ function submit() {
         <div class="card-body container">
             <div v-if="error" class="alert alert-danger d-flex justify-content-between">
                 {{ error }}
-                <a href="stock" class="btn btn-dark bg-transparent text-dark py-0 " 
-                style="border-left-color: #fff;border-top-color: #fff;">Consulter</a>
+                <a href="/" class="btn btn-dark bg-transparent text-dark py-0 ">Consulter</a>
             </div>
             <form @submit.prevent="submit">
                 <div v-for="(article, index) in form.articles" :key="index">

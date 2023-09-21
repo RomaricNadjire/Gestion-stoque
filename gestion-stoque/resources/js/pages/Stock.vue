@@ -60,11 +60,11 @@ export default {
                     </tbody>
                 </table>
             </blockquote>
-            <div class="mt-2 d-flex justify-content-around align-items-center">
-                <a href="add" class="btn btn-outline-primary">Entrée</a>
-                <a href="out" class="btn btn-outline-success">Sortie</a>
-                <a href="history" class="btn btn-outline-info">Histotique</a>
-            </div>
+        </div>
+        <div class="card-footer">
+            <a href="/add" class="btn btn-outline-primary mx-2">Entrée</a>
+            <a href="/out" class="btn btn-outline-success mx-3">Sortie</a>
+            <a href="/history" class="btn btn-outline-info mx-2">Histotique</a>
         </div>
     </div>
 </template>

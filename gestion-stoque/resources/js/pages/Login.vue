@@ -55,7 +55,7 @@ export default {
                 </div>
                 <div class="d-flex">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
-                    <a href="registration" class="nav-link offset-4 pt-3">Creer un compte</a>
+                    <a href="/registration" class="nav-link offset-4 pt-3">Creer un compte</a>
                 </div>
             </form>
         </div>

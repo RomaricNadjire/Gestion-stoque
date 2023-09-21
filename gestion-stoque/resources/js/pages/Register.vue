@@ -64,7 +64,7 @@ export default {
                 </div>
                 <div class="d-flex">
                     <button type="submit" class="btn btn-primary">Envoyer</button>
-                    <a href="login" class="nav-link offset-4 pt-3">Se connecter</a>
+                    <a href="/login" class="nav-link offset-4 pt-3">Se connecter</a>
                 </div>
             </form>
         </div>
