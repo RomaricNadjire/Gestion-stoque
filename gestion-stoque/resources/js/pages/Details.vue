@@ -30,31 +30,29 @@ function submit() {
 </script>
 
 <template>
-    <div class="card m-5">
-        <div class="card-header d-flex justify-content-between align-items-center">
+    <div class="card w-80">
+        <div class="card-header">
             <div>{{ commande.customer_name }}</div>
             <div>{{ commande.order_date }}</div>
         </div>
-        <div class="card-body px-2">
-            <blockquote class="blockquote mb-0">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Produit</th>
-                            <th scope="col">Quantite</th>
-                            <th scope="col">Prix unitaire</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody v-for="detail in details ">
-                        <tr>
-                            <td scope="col">{{ detail.product }}</td>
-                            <td scope="col">{{ detail.quantity }}</td>
-                            <td scope="col">{{ detail.unit_price }}</td>
-                            <td scope="col">{{ detail.quantity*detail.unit_price }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </blockquote>
+        <div class="card-body">
+            <table class="table w-90">
+                <thead class="h-40">
+                    <tr class="bg-primary">
+                        <th scope="col">Produit</th>
+                        <th scope="col">Quantite</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody v-for="detail in details ">
+                    <tr>
+                        <td scope="col">{{ detail.product }}</td>
+                        <td scope="col">{{ detail.quantity }}</td>
+                        <td scope="col">{{ detail.unit_price }}</td>
+                        <td scope="col">{{ detail.quantity*detail.unit_price }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 </div></template>

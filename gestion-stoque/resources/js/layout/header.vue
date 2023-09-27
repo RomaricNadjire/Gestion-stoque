@@ -1,26 +1,39 @@
 <script>
-    import { Link } from '@inertiajs/vue3'
+export default {
+    props: {
+        auth: Object,
+    },
+    methods: {
+        user() {
+            return auth;
+        }
+    }
+}
+</script>
+
+<script setup>
+function display(x) {
+    document.getElementById(x).classList.toggle('hiddenbar')
+    document.getElementById(x).classList.toggle('visiblebar')
+}
 </script>
 
 <template>
-    <main>        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand btn btn-outline-dark text-primary"  href="/">GS</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <main>
+        <nav>
+            <a class="logo" href="/">GS</a>
+            <button class="navbar-toggler" type="button" @click="display('navigation-bar')">
+                <span class="toggler-icons">BB</span>
             </button>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Stock</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/commandes">Commandes</a>
-                    </li>
-                </ul>
+            <div class="navigation-bar hiddenbar" id="navigation-bar">
+                <span style="--i:1"><a href="/">Stock</a></span>
+                <span style="--i:2"><a href="/commandes">Commandes</a></span>
+                <span style="--i:3" v-if="user()" class="deconnecteur"><a href="/deconnection">Deconnecter</a></span>
+                <span style="--i:3" v-else class="deconnecteur"><a href="/login">Connecter</a></span>
             </div>
         </nav>
+        <div class="bg-container"></div>
+
         <article>
             <slot />
         </article>

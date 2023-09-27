@@ -31,30 +31,30 @@ export default {
 </script>
 
 <template>
-    <div class="card col-5 offset-4 mt-5">
+    <div class="card w-50 br-10">
         <div class="card-header">
             Gestionaire de stock
         </div>
-        <div class="card-body container">
-            <div v-if="error" class="alert alert-danger">
+        <div class="card-body">
+            <div v-if="error" class="d-flex br-10 alert alert-danger">
                 {{ error }}
             </div>
-            <div v-if="message" class="alert alert-success">
+            <div v-if="message" class="d-flex br-1 alert alert-success">
                 {{ message }}
             </div>
             <form @submit.prevent="submit">
-                <div class="mb-3">
+                <div class="mb-3 input-container">
+                    <input type="email" class="form-control mt-2" id="email" v-model="form.email" aria-describedby="emailHelp">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control mt-2" id="email" v-model="form.email" aria-describedby="emailHelp" placeholder="Entrer votre email">
                     <small v-if="errors.email" class="text-danger text-xs">{{ errors.email }}</small>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 input-container">
+                    <input type="password" class="form-control mt-2" id="password" v-model="form.password">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control mt-2" id="password" v-model="form.password" placeholder="Mot de passe">
                     <small v-if="errors.password" class="text-danger text-xs">{{ errors.password }}</small>
                 </div>
-                <div class="d-flex">
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                <div class="mb-3 form-bottom">
+                    <button type="submit" class="btn form-bottom-button">Envoyer</button>
                     <a href="/registration" class="nav-link offset-4 pt-3">Creer un compte</a>
                 </div>
             </form>
